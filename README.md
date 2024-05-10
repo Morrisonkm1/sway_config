@@ -1,4 +1,5 @@
 Sway Customizations
+
 This repository houses my ongoing customizations for the Sway window manager. I've put this together as a safeguard in case of any mishaps with my Arch Linux OS and Sway setup. While these customizations are fairly basic for now, they serve as a foundation for future enhancements.
 
 Contents:
