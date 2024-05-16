@@ -15,6 +15,9 @@ Sfwbar Config:
 A project I've been developing, although visually incomplete.
 Still refining to achieve the desired visual aesthetics and functionality.
 
+Waybar Config:
+Current Substitute for sfwbar because it seemed easier. I still currently have sfwbar running but it doesn't open on start. It only appears when it is called upon. Waybar has configuration files like volume, mic volume, internet connection, cpu degree (i think that's what it is), what language the keyboard is in, battery percentage, and date. It also contains color configuration which I don't want to do twice.
+
 Progress Overview:
 
 Sway Config:
