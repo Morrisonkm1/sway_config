@@ -4,6 +4,9 @@
 #
 # Read `man 5 sway` for a complete reference.
 
+#disable window titlebar
+#default_border pixel 2
+
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
@@ -18,7 +21,7 @@ set $term foot
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu dmenu_path | wmenu | xargs swaymsg exec --
+set $menu wofi --show run
 
 ### Output configuration
 #
@@ -57,6 +60,9 @@ output * bg ~/Desktop/stuff/yes.jpg  fill
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
+#bar {
+
+#}
 
 ### Key bindings
 #
@@ -201,17 +207,7 @@ bindsym $mod+r mode "resize"
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
-    position top
-
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %X'; do sleep 1; done
-
-    colors {
-        statusline #ffffff
-        background #203354
-        inactive_workspace #32323200 #32323200 #5c5c5c 
-    }
+  swaybar_command waybar 
 }
 
 #Trying for google-chrome
@@ -220,7 +216,7 @@ bindsym $mod+Shift+i exec spotify
 bindsym $mod+Shift+o exec discord
 
 #Trying for github easy when cloning
-bindsym $mod+p  exec --no-startup-id swaymsg "exec xdotool type 'git clone https://github.com/'
+#bindsym $mod+p  exec --no-startup-id swaymsg "exec xdotool type 'git clone https://github.com/'
 
 #Trying swaylock
 bindsym $mod+Shift+z exec ~/.config/swaylock/lock.sh
@@ -232,5 +228,15 @@ bindsym $mod+Shift+z exec ~/.config/swaylock/lock.sh
 #bindsym Alt+Shift+Tab bar hidden_state toggle 
 #set $mod+c to hide/unhide taskbar 
 #bindsym $mod+z bar mode toggle
+
+#Trying for volume
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -10%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+#Trying for brightness
+#xbacklight
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 
 include /etc/sway/config.d/*
